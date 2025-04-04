@@ -4,6 +4,14 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    port: Number(process.env.PORT) || 3000,
+    host: true, // Needed for docker/production
+  },
+  preview: {
+    port: Number(process.env.PORT) || 3000,
+    host: true, // Needed for docker/production
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
