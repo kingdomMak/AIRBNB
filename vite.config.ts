@@ -5,12 +5,12 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: Number(process.env.PORT) || 3000,
-    host: true, // Needed for docker/production
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
+    host: true, // Listen on all network interfaces
   },
   preview: {
-    port: Number(process.env.PORT) || 3000,
-    host: true, // Needed for docker/production
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
+    host: true,
   },
   optimizeDeps: {
     exclude: ['lucide-react'],
